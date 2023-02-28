@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="row flex-wrap">
+    <h5 >Beverages</h5>
+    <div class="col-sm-3 justify-content-around align-items-center d-flex flex-column" *ngFor="let item of items">
+        <div class="item">
+          <p class="text-center">{{item.name}}</p>
+          <img src="./images/beverages.jpeg"/>
+          <div class="rate d-flex my-2 w-75 justify-content-evenly">
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+          </div>
+          <div class="buttons d-flex justify-content-between w-100">
+              <button>Order</button>
+              <button>Add to cart</button>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
