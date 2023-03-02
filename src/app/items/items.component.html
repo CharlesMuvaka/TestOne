@@ -1,4 +1,25 @@
-<div class="container-fluid">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Order</h5>
+        <button type="button" class="close" data-mdb-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal" data-mdb-target="#exampleModal">Cancel</button>
+        <button type="button" class="btn btn-primary">Proceed to pay</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+
   <div class="row flex-wrap">
     <h5 >Beverages</h5>
     <div class="col-sm-3 justify-content-around align-items-center d-flex flex-column" *ngFor="let item of items">
@@ -13,7 +34,7 @@
               <i class="fa-regular fa-star"></i>
           </div>
           <div class="buttons d-flex justify-content-between w-100">
-              <button>Order</button>
+              <button type="button" data-mdb-toggle="modal" data-mdb-target="#exampleModal">Order</button>
               <button>Add to cart</button>
           </div>
         </div>
