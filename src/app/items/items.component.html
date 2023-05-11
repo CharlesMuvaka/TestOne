@@ -9,11 +9,71 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <table id="table" class="table">
+
+          <tr>
+            <th>Item name</th>
+            <th>Item price</th>
+            <th>quantity</th>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+        </table>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal" data-mdb-target="#exampleModal">Cancel</button>
-        <button type="button" class="btn btn-primary">Proceed to pay</button>
+        <button type="button" class="btn btn-primary"  data-mdb-target="#ticket" data-mdb-toggle="modal" >Proceed to pay</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Ticket modal-->
+<div class="modal fade" id="ticket" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Order</h5>
+        <button type="button" class="close" data-mdb-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="ticket-form">
+            <div class="form-group">
+              <input class="form-control" placeholder="Enter your id number" name="userId" required/>
+            </div>
+            <button class="btn w-100 mt-2 btn-primary" (click) = "showDetails()">Submit</button>
+        </form>
+
+        <div class="items d-none">
+          <p>Dear charles, Below are the items you have ordered</p>
+          <table id="table" class="table">
+
+            <tr>
+              <th>Item name</th>
+              <th>Item price</th>
+              <th>quantity</th>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+          </table>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary d-none" data-mdb-dismiss="modal" data-mdb-target="#exampleModal">Cancel</button>
+        <button type="button" class="btn btn-primary d-none" (click) = "addToDb()">Proceed to pay</button>
       </div>
     </div>
   </div>
@@ -22,10 +82,11 @@
 
   <div class="row flex-wrap">
     <h5 >Beverages</h5>
-    <div class="col-sm-3 justify-content-around align-items-center d-flex flex-column" *ngFor="let item of items">
+    <div class="col-sm-3 justify-content-around align-items-center d-flex flex-column" *ngFor="let item of items; let i = index">
         <div class="item">
           <p class="text-center">{{item.name}}</p>
-          <img src="./images/beverages.jpeg"/>
+          <img src="../assets/images/beverages.jpeg"/>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, cumque.</p>
           <div class="rate d-flex my-2 w-75 justify-content-evenly">
               <i class="fa-regular fa-star"></i>
               <i class="fa-regular fa-star"></i>
@@ -34,8 +95,8 @@
               <i class="fa-regular fa-star"></i>
           </div>
           <div class="buttons d-flex justify-content-between w-100">
-              <button type="button" data-mdb-toggle="modal" data-mdb-target="#exampleModal">Order</button>
-              <button>Add to cart</button>
+              <button type="button" data-mdb-toggle="modal" data-mdb-target="#exampleModal" (click) = "appendItem(i)">Order</button>
+              <button (click) = "addToCart(i)">Add to cart</button>
           </div>
         </div>
     </div>
